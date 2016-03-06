@@ -1,0 +1,26 @@
+{
+  "name": "balloon.css",
+  "version": "1.0.0",
+  "description": "Balloon.css lets you add tooltips to elements without JavaScript and in just a few lines of CSS.",
+  "main": "src/balloon.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kazzkiq/balloon.css.git"
+  },
+  "author": "Claudio Holanda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kazzkiq/balloon.css/issues"
+  },
+  "homepage": "https://kazzkiq.github.io/balloon.css/",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0"
+  }
+}
