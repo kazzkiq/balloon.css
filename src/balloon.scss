@@ -79,6 +79,7 @@ $balloon-arrow-height:   6px;
 
 [data-balloon] {
     position: relative; // alt. absolute or fixed
+    outline: 0;
 
     &:before {
         @include base-effects();
