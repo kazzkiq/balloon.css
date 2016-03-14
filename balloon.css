@@ -1,5 +1,6 @@
 [data-balloon] {
-  position: relative; }
+  position: relative;
+  outline: 0;}
   [data-balloon]:before {
     filter: alpha(opactiy=0);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
