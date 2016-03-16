@@ -113,7 +113,7 @@ $balloon-arrow-height:   6px;
 
     &[data-balloon-break] {
         &:before {
-            white-space: normal;
+            white-space: pre-wrap;
         }
     }
 
