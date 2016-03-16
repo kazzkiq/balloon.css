@@ -103,7 +103,8 @@ $balloon-arrow-height:   6px;
         z-index: 10;
     }
 
-    &:hover {
+    &:hover:not(.hide-balloon),
+    &.show-balloon:not(.hide-balloon) {
         &:before,
         &:after {
             @include opacity(1);
@@ -134,7 +135,8 @@ $balloon-arrow-height:   6px;
             @include transform-origin(top);
         }
 
-        &:hover {
+        &:hover:not(.hide-balloon),
+        &.show-balloon:not(.hide-balloon) {
             &:before {
                 @include transform(translate3d(-50%, 0, 0));
             }
@@ -163,7 +165,8 @@ $balloon-arrow-height:   6px;
             @include transform(translate3d(-50%, -10px, 0));
         }
 
-        &:hover {
+        &:hover:not(.hide-balloon),
+        &.show-balloon:not(.hide-balloon) {
             &:before {
                 @include transform(translate3d(-50%, 0, 0));
             }
@@ -191,7 +194,8 @@ $balloon-arrow-height:   6px;
             @include transform(translate3d(10px, -50%, 0));
         }
 
-        &:hover {
+        &:hover:not(.hide-balloon),
+        &.show-balloon:not(.hide-balloon) {
             &:before {
                 @include transform(translate3d(0, -50%, 0));
             }
@@ -221,7 +225,8 @@ $balloon-arrow-height:   6px;
             @include transform(translate3d(-10px, -50%, 0));
         }
 
-        &:hover {
+        &:hover:not(.hide-balloon),
+        &.show-balloon:not(.hide-balloon) {
             &:before {
                 @include transform(translate3d(0, -50%, 0));
             }
