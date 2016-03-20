@@ -119,12 +119,6 @@
             .transform(translate3d(-50%, 0, 0));
         }
     }
-
-    &[data-balloon-break] {
-        &:after {
-            white-space: normal;
-        }
-    }
 }
 
 [data-balloon-pos="down"] {
@@ -203,4 +197,10 @@
         @media screen and (min-width: 768px) { width: 380px; }
     }
     [data-balloon-length="fit"]&    { width: 100%; }
+}
+
+[data-balloon][data-balloon-break] {
+  &:after {
+    white-space: pre-wrap;
+  }
 }
