@@ -111,12 +111,6 @@ $balloon-arrow-height:   6px;
         }
     }
 
-    &[data-balloon-break] {
-        &:after {
-            white-space: normal;
-        }
-    }
-
     &[data-balloon-pos="up"] {
         &:after {
             bottom: 100%;
@@ -270,4 +264,10 @@ $balloon-arrow-height:   6px;
             width: 100%;
         }
     }
+
+  &[data-balloon-break] {
+    &:after {
+      white-space: pre-wrap;
+    }
+  }
 }
