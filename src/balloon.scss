@@ -80,7 +80,7 @@ $balloon-arrow-height:   6px;
 [data-balloon] {
     position: relative; // alt. absolute or fixed
 
-    &:before {
+    &:after {
         @include base-effects();
 
         background: $balloon-bg;
@@ -94,7 +94,7 @@ $balloon-arrow-height:   6px;
         z-index: 10;
     }
 
-    &:after {
+    &:before {
         @include svg-arrow($balloon-bg);
         @include base-effects();
 
@@ -112,21 +112,20 @@ $balloon-arrow-height:   6px;
     }
 
     &[data-balloon-break] {
-        &:before {
-            white-space: pre-wrap;
+        &:after {
+            white-space: normal;
         }
     }
 
     &[data-balloon-pos="up"] {
-        &:before {
+        &:after {
             bottom: 100%;
             left: 50%;
             margin-bottom: 5px + $balloon-arrow-height;
             @include transform(translate3d(-50%, 10px, 0));
             @include transform-origin(top);
         }
-
-        &:after {
+        &:before {
             bottom: 100%;
             left: 50%;
             margin-bottom: 5px;
@@ -135,11 +134,11 @@ $balloon-arrow-height:   6px;
         }
 
         &:hover {
-            &:before {
+            &:after {
                 @include transform(translate3d(-50%, 0, 0));
             }
 
-            &:after {
+            &:before {
                 @include transform(translate3d(-50%, 0, 0));
             }
         }
@@ -147,14 +146,14 @@ $balloon-arrow-height:   6px;
     }
 
     &[data-balloon-pos='down'] {
-        &:before {
+        &:after {
             left: 50%;
             margin-top: 5px + $balloon-arrow-height;
             top: 100%;
             @include transform(translate3d(-50%, -10px, 0));
         }
 
-        &:after {
+        &:before {
             @include svg-arrow($balloon-bg, 'down');
 
             left: 50%;
@@ -164,25 +163,25 @@ $balloon-arrow-height:   6px;
         }
 
         &:hover {
-            &:before {
+            &:after {
                 @include transform(translate3d(-50%, 0, 0));
             }
 
-            &:after {
+            &:before {
                 @include transform(translate3d(-50%, 0, 0));
             }
         }
     }
 
     &[data-balloon-pos='left'] {
-        &:before {
+        &:after {
             margin-right: 5px + $balloon-arrow-height;
             right: 100%;
             top: 50%;
             @include transform(translate3d(10px, -50%, 0));
         }
 
-        &:after {
+        &:before {
             @include svg-arrow($balloon-bg, 'left');
 
             margin-right: 5px;
@@ -192,11 +191,11 @@ $balloon-arrow-height:   6px;
         }
 
         &:hover {
-            &:before {
+            &:after {
                 @include transform(translate3d(0, -50%, 0));
             }
 
-            &:after {
+            &:before {
                 @include transform(translate3d(0, -50%, 0));
             }
         }
@@ -204,7 +203,7 @@ $balloon-arrow-height:   6px;
     }
 
     &[data-balloon-pos='right'] {
-        &:before {
+        &:after {
 
             left: 100%;
             margin-left: 5px + $balloon-arrow-height;
@@ -212,7 +211,7 @@ $balloon-arrow-height:   6px;
             @include transform(translate3d(-10px, -50%, 0));
         }
 
-        &:after {
+        &:before {
             @include svg-arrow($balloon-bg, 'right');
 
             left: 100%;
@@ -222,18 +221,18 @@ $balloon-arrow-height:   6px;
         }
 
         &:hover {
-            &:before {
+            &:after {
                 @include transform(translate3d(0, -50%, 0));
             }
 
-            &:after {
+            &:before {
                 @include transform(translate3d(0, -50%, 0));
             }
         }
     }
 
     &[data-balloon-length='small'] {
-        &:before {
+        &:after {
             white-space: normal;
             width: 80px;
         }
@@ -247,14 +246,14 @@ $balloon-arrow-height:   6px;
     }
 
     &[data-balloon-length='large'] {
-        &:before {
+        &:after {
             white-space: normal;
             width: 260px;
         }
     }
 
     &[data-balloon-length='xlarge'] {
-        &:before {
+        &:after {
             white-space: normal;
             width: 380px;
 
@@ -266,7 +265,7 @@ $balloon-arrow-height:   6px;
     }
 
     &[data-balloon-length='fit'] {
-        &:before {
+        &:after {
             white-space: normal;
             width: 100%;
         }
