@@ -30,6 +30,13 @@ Example using [Font Awesome](https://fortawesome.github.io/Font-Awesome/):
 <button class="fa" data-balloon="Font Awesome: &#xf030; &#xf133; &#xf1fc; &#xf03e; &#xf1f8;" data-balloon-pos="up">Hover me!</button>
 ```
 
+### Specify when the Tooltip Appears
+The tooltip can also be manually shown or hidden:
+```html
+<button data-balloon="Always here!" data-balloon-pos="up" data-balloon-show="true">Don't need to hover me!</button>
+<button data-balloon="Hidden!" data-balloon-pos="up" data-balloon-show="false">To show my tooltip, set data-balloon-show to true!</button>
+```
+
 ### Contributing
 Balloon.css is mantained in SASS and LESS. To contribute with bugfixes and enchancements you must follow this steps:
 
