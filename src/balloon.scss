@@ -103,8 +103,8 @@ $balloon-arrow-height:   6px;
         z-index: 10;
     }
 
-    &:hover:not(.hide-balloon),
-    &.show-balloon:not(.hide-balloon) {
+    &:hover:not([data-balloon-show="false"]),
+    &[data-balloon-show="true"] {
         &:before,
         &:after {
             @include opacity(1);
@@ -135,8 +135,8 @@ $balloon-arrow-height:   6px;
             @include transform-origin(top);
         }
 
-        &:hover:not(.hide-balloon),
-        &.show-balloon:not(.hide-balloon) {
+        &:hover:not([data-balloon-show="false"]),
+        &[data-balloon-show="true"] {
             &:before {
                 @include transform(translate3d(-50%, 0, 0));
             }
@@ -165,8 +165,8 @@ $balloon-arrow-height:   6px;
             @include transform(translate3d(-50%, -10px, 0));
         }
 
-        &:hover:not(.hide-balloon),
-        &.show-balloon:not(.hide-balloon) {
+        &:hover:not([data-balloon-show="false"]),
+        &[data-balloon-show="true"] {
             &:before {
                 @include transform(translate3d(-50%, 0, 0));
             }
@@ -194,8 +194,8 @@ $balloon-arrow-height:   6px;
             @include transform(translate3d(10px, -50%, 0));
         }
 
-        &:hover:not(.hide-balloon),
-        &.show-balloon:not(.hide-balloon) {
+        &:hover:not([data-balloon-show="false"]),
+        &[data-balloon-show="true"] {
             &:before {
                 @include transform(translate3d(0, -50%, 0));
             }
@@ -225,8 +225,8 @@ $balloon-arrow-height:   6px;
             @include transform(translate3d(-10px, -50%, 0));
         }
 
-        &:hover:not(.hide-balloon),
-        &.show-balloon:not(.hide-balloon) {
+        &:hover:not([data-balloon-show="false"]),
+        &[data-balloon-show="true"] {
             &:before {
                 @include transform(translate3d(0, -50%, 0));
             }
