@@ -68,7 +68,7 @@ $balloon-arrow-height:   6px;
 @mixin base-effects () {
     @include opacity(0);
     pointer-events: none;
-    @include transition(all .18s ease-out);
+    @include transition(all .18s ease-out .18s);
 }
 
 
@@ -80,7 +80,7 @@ $balloon-arrow-height:   6px;
 [data-balloon] {
     position: relative; // alt. absolute or fixed
 
-    &:before {
+    &:after {
         @include base-effects();
 
         background: $balloon-bg;
@@ -94,7 +94,7 @@ $balloon-arrow-height:   6px;
         z-index: 10;
     }
 
-    &:after {
+    &:before {
         @include svg-arrow($balloon-bg);
         @include base-effects();
 
@@ -113,50 +113,52 @@ $balloon-arrow-height:   6px;
     }
 
     &[data-balloon-break] {
-        &:before {
+        &:after {
             white-space: normal;
         }
     }
 
     &[data-balloon-pos="up"] {
-        &:before {
+        &:after {
             bottom: 100%;
             left: 50%;
             margin-bottom: 5px + $balloon-arrow-height;
             @include transform(translate3d(-50%, 10px, 0));
             @include transform-origin(top);
         }
-
-        &:after {
+        &:before {
             bottom: 100%;
             left: 50%;
             margin-bottom: 5px;
             @include transform(translate3d(-50%, 10px, 0));
             @include transform-origin(top);
+            box-shadow: inset 0 -1px 2px 0 rgba(red, 1);
         }
 
         &:hover:not([data-balloon-show="false"]),
         &[data-balloon-show="true"] {
-            &:before {
+            &:after {
                 @include transform(translate3d(-50%, 0, 0));
             }
 
-            &:after {
+            &:before {
                 @include transform(translate3d(-50%, 0, 0));
+                // box-shadow: 0 -1px 2px 0 rgba($balloon-bg, .1);
+
             }
         }
 
     }
 
     &[data-balloon-pos='down'] {
-        &:before {
+        &:after {
             left: 50%;
             margin-top: 5px + $balloon-arrow-height;
             top: 100%;
             @include transform(translate3d(-50%, -10px, 0));
         }
 
-        &:after {
+        &:before {
             @include svg-arrow($balloon-bg, 'down');
 
             left: 50%;
@@ -167,25 +169,25 @@ $balloon-arrow-height:   6px;
 
         &:hover:not([data-balloon-show="false"]),
         &[data-balloon-show="true"] {
-            &:before {
+            &:after {
                 @include transform(translate3d(-50%, 0, 0));
             }
 
-            &:after {
+            &:before {
                 @include transform(translate3d(-50%, 0, 0));
             }
         }
     }
 
     &[data-balloon-pos='left'] {
-        &:before {
+        &:after {
             margin-right: 5px + $balloon-arrow-height;
             right: 100%;
             top: 50%;
             @include transform(translate3d(10px, -50%, 0));
         }
 
-        &:after {
+        &:before {
             @include svg-arrow($balloon-bg, 'left');
 
             margin-right: 5px;
@@ -196,11 +198,11 @@ $balloon-arrow-height:   6px;
 
         &:hover:not([data-balloon-show="false"]),
         &[data-balloon-show="true"] {
-            &:before {
+            &:after {
                 @include transform(translate3d(0, -50%, 0));
             }
 
-            &:after {
+            &:before {
                 @include transform(translate3d(0, -50%, 0));
             }
         }
@@ -208,7 +210,7 @@ $balloon-arrow-height:   6px;
     }
 
     &[data-balloon-pos='right'] {
-        &:before {
+        &:after {
 
             left: 100%;
             margin-left: 5px + $balloon-arrow-height;
@@ -216,7 +218,7 @@ $balloon-arrow-height:   6px;
             @include transform(translate3d(-10px, -50%, 0));
         }
 
-        &:after {
+        &:before {
             @include svg-arrow($balloon-bg, 'right');
 
             left: 100%;
@@ -227,18 +229,18 @@ $balloon-arrow-height:   6px;
 
         &:hover:not([data-balloon-show="false"]),
         &[data-balloon-show="true"] {
-            &:before {
+            &:after {
                 @include transform(translate3d(0, -50%, 0));
             }
 
-            &:after {
+            &:before {
                 @include transform(translate3d(0, -50%, 0));
             }
         }
     }
 
     &[data-balloon-length='small'] {
-        &:before {
+        &:after {
             white-space: normal;
             width: 80px;
         }
@@ -252,14 +254,14 @@ $balloon-arrow-height:   6px;
     }
 
     &[data-balloon-length='large'] {
-        &:before {
+        &:after {
             white-space: normal;
             width: 260px;
         }
     }
 
     &[data-balloon-length='xlarge'] {
-        &:before {
+        &:after {
             white-space: normal;
             width: 380px;
 
@@ -271,7 +273,7 @@ $balloon-arrow-height:   6px;
     }
 
     &[data-balloon-length='fit'] {
-        &:before {
+        &:after {
             white-space: normal;
             width: 100%;
         }
