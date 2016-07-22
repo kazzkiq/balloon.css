@@ -29,7 +29,7 @@ $balloon-arrow-height:   6px;
         $height: 18px;
     }
 
-    background: no-repeat url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="#{$width * 2}" height="#{$height * 2}"><path fill="#{$color}" transform="rotate(#{$degrees})" d="M2.658,0.000 C-13.615,0.000 50.938,0.000 34.662,0.000 C28.662,0.000 23.035,12.002 18.660,12.002 C14.285,12.002 8.594,0.000 2.658,0.000 Z"/></svg>');
+    background: no-repeat url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%22#{$width * 2}%22%20height%3D%22#{$height * 2}%22%3E%3Cpath%20fill%3D%22#{$color}%22%20transform%3D%22rotate(#{$degrees})%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E');
     background-size: 100% auto;
     width: $width;
     height: $height;
@@ -76,6 +76,10 @@ $balloon-arrow-height:   6px;
 // Styles
 // -----------------------------------------
 
+// IE 11 button bugfix
+button[data-balloon] {
+    overflow: visible;
+}
 
 [data-balloon] {
     position: relative; // alt. absolute or fixed
@@ -103,7 +107,7 @@ $balloon-arrow-height:   6px;
         z-index: 10;
     }
 
-    &:hover {
+    &:hover, &[data-balloon-visible] {
         &:before,
         &:after {
             @include opacity(1);
@@ -133,7 +137,7 @@ $balloon-arrow-height:   6px;
             @include transform-origin(top);
         }
 
-        &:hover {
+        &:hover, &[data-balloon-visible] {
             &:after {
                 @include transform(translate(-50%, 0));
             }
@@ -162,7 +166,7 @@ $balloon-arrow-height:   6px;
             @include transform(translate(-50%, -10px));
         }
 
-        &:hover {
+        &:hover, &[data-balloon-visible] {
             &:after {
                 @include transform(translate(-50%, 0));
             }
@@ -190,7 +194,7 @@ $balloon-arrow-height:   6px;
             @include transform(translate(10px, -50%));
         }
 
-        &:hover {
+        &:hover, &[data-balloon-visible] {
             &:after {
                 @include transform(translate(0, -50%));
             }
@@ -220,7 +224,7 @@ $balloon-arrow-height:   6px;
             @include transform(translate(-10px, -50%));
         }
 
-        &:hover {
+        &:hover, &[data-balloon-visible] {
             &:after {
                 @include transform(translate(0, -50%));
             }

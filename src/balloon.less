@@ -14,7 +14,9 @@
 .mixin-svg-arrow(@width, @height, @degrees) {
     @arrow-width: @width * 2;
     @arrow-height: @height * 2;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="@{arrow-width}" height="@{arrow-height}"><path fill="@{color}" transform="rotate(@{degrees})" d="M2.658,0.000 C-13.615,0.000 50.938,0.000 34.662,0.000 C28.662,0.000 23.035,12.002 18.660,12.002 C14.285,12.002 8.594,0.000 2.658,0.000 Z"/></svg>') no-repeat;
+    @svg-arrow: ~'<svg xmlns="http://www.w3.org/2000/svg" width="@{arrow-width}" height="@{arrow-height}"><path fill="@{color}" transform="rotate(@{degrees})" d="M2.658,0.000 C-13.615,0.000 50.938,0.000 34.662,0.000 C28.662,0.000 23.035,12.002 18.660,12.002 C14.285,12.002 8.594,0.000 2.658,0.000 Z"/></svg>';
+    @-svg-code: escape(~'@{svg-arrow}');
+    background: url('data:image/svg+xml;charset=utf-8,@{-svg-code}') no-repeat;
     background-size: 100% auto;
     height: @height;
     width: @width;
@@ -84,6 +86,11 @@
 // Styles
 // -----------------------------------------
 
+// IE 11 button bugfix
+button[data-balloon] {
+    overflow: visible;
+}
+
 [data-balloon] {
     position: relative; // alt. absolute or fixed
     &:before,
@@ -111,7 +118,7 @@
         content: "";
         margin-bottom: @balloon-arrow-size - 1;
     }
-    &:hover {
+    &:hover, &[data-balloon-visible] {
         &:before,
         &:after {
             .opacity(1);
@@ -143,7 +150,7 @@
         margin-top: @balloon-arrow-size - 1;
         margin-bottom: 0;
     }
-    &:hover {
+    &:hover, &[data-balloon-visible] {
         &:before,
         &:after {
           .transform(translate(-50%, 0)); 
@@ -168,7 +175,7 @@
         margin-right: @balloon-arrow-size - 1;
         margin-bottom: 0;
     }
-    &:hover {
+    &:hover, &[data-balloon-visible] {
         &:before,
         &:after {
           .transform(translate(0, -50%)); 
@@ -192,7 +199,7 @@
         margin-bottom: 0;
         margin-left: @balloon-arrow-size - 1;
     }
-    &:hover {
+    &:hover, &[data-balloon-visible] {
         &:before,
         &:after {
           .transform(translate(0, -50%)); 
