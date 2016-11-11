@@ -35,40 +35,10 @@ $balloon-arrow-height:   6px;
     height: $height;
 }
 
-@mixin transition ($args...) {
-  -webkit-transition: $args;
-  -moz-transition: $args;
-  -ms-transition: $args;
-  -o-transition: $args;
-  transition: $args;
-}
-
-@mixin transform ($val) {
-  -webkit-transform: $val;
-  -moz-transform: $val;
-  -ms-transform: $val;
-  transform: $val;
-}
-
-@mixin transform-origin ($val) {
-  -webkit-transform-origin: $val;
-  -moz-transform-origin: $val;
-  -ms-transform-origin: $val;
-  transform-origin: $val;
-}
-
-@mixin opacity ($trans) {
-  filter: alpha(opactiy=($trans * 100));
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$trans * 100})";
-  -moz-opacity: $trans;
-  -khtml-opacity: $trans;
-  opacity: $trans;
-}
-
 @mixin base-effects () {
-    @include opacity(0);
+    opacity: 0;
     pointer-events: none;
-    @include transition(all .18s ease-out .18s);
+    transition: all .18s ease-out .18s;
 }
 
 
@@ -110,7 +80,7 @@ button[data-balloon] {
     &:hover, &[data-balloon-visible] {
         &:before,
         &:after {
-            @include opacity(1);
+            opacity: 1;
             pointer-events: auto;
         }
     }
@@ -126,24 +96,24 @@ button[data-balloon] {
             bottom: 100%;
             left: 50%;
             margin-bottom: 5px + $balloon-arrow-height;
-            @include transform(translate(-50%, 10px));
-            @include transform-origin(top);
+            transform: translate(-50%, 10px);
+            transform-origin: top;
         }
         &:before {
             bottom: 100%;
             left: 50%;
             margin-bottom: 5px;
-            @include transform(translate(-50%, 10px));
-            @include transform-origin(top);
+            transform: translate(-50%, 10px);
+            transform-origin: top;
         }
 
         &:hover, &[data-balloon-visible] {
             &:after {
-                @include transform(translate(-50%, 0));
+                transform: translate(-50%, 0);
             }
 
             &:before {
-              @include transform(translate(-50%, 0));
+              transform: translate(-50%, 0);
             }
         }
 
@@ -154,7 +124,7 @@ button[data-balloon] {
             left: 50%;
             margin-top: 5px + $balloon-arrow-height;
             top: 100%;
-            @include transform(translate(-50%, -10px));
+            transform: translate(-50%, -10px);
         }
 
         &:before {
@@ -163,16 +133,16 @@ button[data-balloon] {
             left: 50%;
             margin-top: 5px;
             top: 100%;
-            @include transform(translate(-50%, -10px));
+            transform: translate(-50%, -10px);
         }
 
         &:hover, &[data-balloon-visible] {
             &:after {
-                @include transform(translate(-50%, 0));
+                transform: translate(-50%, 0);
             }
 
             &:before {
-                @include transform(translate(-50%, 0));
+                transform: translate(-50%, 0);
             }
         }
     }
@@ -182,7 +152,7 @@ button[data-balloon] {
             margin-right: 5px + $balloon-arrow-height;
             right: 100%;
             top: 50%;
-            @include transform(translate(10px, -50%));
+            transform: translate(10px, -50%);
         }
 
         &:before {
@@ -191,16 +161,16 @@ button[data-balloon] {
             margin-right: 5px;
             right: 100%;
             top: 50%;
-            @include transform(translate(10px, -50%));
+            transform: translate(10px, -50%);
         }
 
         &:hover, &[data-balloon-visible] {
             &:after {
-                @include transform(translate(0, -50%));
+                transform: translate(0, -50%);
             }
 
             &:before {
-                @include transform(translate(0, -50%));
+                transform: translate(0, -50%);
             }
         }
 
@@ -212,7 +182,7 @@ button[data-balloon] {
             left: 100%;
             margin-left: 5px + $balloon-arrow-height;
             top: 50%;
-            @include transform(translate(-10px, -50%));
+            transform: translate(-10px, -50%);
         }
 
         &:before {
@@ -221,16 +191,16 @@ button[data-balloon] {
             left: 100%;
             margin-left: 5px;
             top: 50%;
-            @include transform(translate(-10px, -50%));
+            transform: translate(-10px, -50%);
         }
 
         &:hover, &[data-balloon-visible] {
             &:after {
-                @include transform(translate(0, -50%));
+                transform: translate(0, -50%);
             }
 
             &:before {
-                @include transform(translate(0, -50%));
+                transform: translate(0, -50%);
             }
         }
     }

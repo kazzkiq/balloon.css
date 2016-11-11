@@ -49,36 +49,10 @@
     }
 }
 
-.transition(@args) {
-    -webkit-transition: @args;
-            transition: @args;
-}
-
-.transform (@val) {
-    -webkit-transform: @val;
-        -ms-transform: @val;
-            transform: @val;
-}
-
-.transform-origin(@val) {
-    -webkit-transform-origin: @val;
-        -ms-transform-origin: @val;
-            transform-origin: @val;
-}
-
-.opacity(@trans) {
-    @multiply: @trans * 100;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{multiply})";
-        filter: alpha(opacity=@multiply);
-    -khtml-opacity: @trans;
-      -moz-opacity: @trans;
-           opacity: @trans;
-}
-
 .base-effects() {
-    .opacity(0);
+    opacity: 0;
     pointer-events: none;
-    .transition(all .18s ease-out .18s);
+    transition: all .18s ease-out .18s;
 }
 
 
@@ -100,8 +74,8 @@ button[data-balloon] {
         left: 50%;
         position: absolute;
         z-index: 10;
-        .transform(translate(-50%, 10px));
-        .transform-origin(top);
+        transform: translate(-50%, 10px);
+        transform-origin: top;
     }
     &:after {
         background: @balloon-bg;
@@ -121,9 +95,9 @@ button[data-balloon] {
     &:hover, &[data-balloon-visible] {
         &:before,
         &:after {
-            .opacity(1);
+            opacity: 1;
             pointer-events: auto;
-            .transform(translate(-50%, 0));
+            transform: translate(-50%, 0);
         }
     }
 
@@ -140,7 +114,7 @@ button[data-balloon] {
         bottom: auto;
         left: 50%;
         top: 100%;
-        .transform(translate(-50%, -10px));
+        transform: translate(-50%, -10px);
     }
     &:after {
         margin-top: @balloon-arrow-size + 5;
@@ -153,7 +127,7 @@ button[data-balloon] {
     &:hover, &[data-balloon-visible] {
         &:before,
         &:after {
-          .transform(translate(-50%, 0)); 
+          transform: translate(-50%, 0);
         }
     }
 }
@@ -165,7 +139,7 @@ button[data-balloon] {
         left: auto;
         right: 100%;
         top: 50%;
-        .transform(translate(10px, -50%));
+        transform: translate(10px, -50%);
     }
     &:after {
         margin-right: @balloon-arrow-size + 5;
@@ -178,7 +152,7 @@ button[data-balloon] {
     &:hover, &[data-balloon-visible] {
         &:before,
         &:after {
-          .transform(translate(0, -50%)); 
+          transform: translate(0, -50%);
         }
     }
 }
@@ -189,7 +163,7 @@ button[data-balloon] {
         bottom: auto;
         left: 100%;
         top: 50%;
-        .transform(translate(-10px, -50%));
+        transform: translate(-10px, -50%);
     }
     &:after {
         margin-left: @balloon-arrow-size + 5;
@@ -202,7 +176,7 @@ button[data-balloon] {
     &:hover, &[data-balloon-visible] {
         &:before,
         &:after {
-          .transform(translate(0, -50%)); 
+          transform: translate(0, -50%);
         }
     }
 }

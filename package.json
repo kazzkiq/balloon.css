@@ -18,13 +18,15 @@
   "main": "src/balloon.scss",
   "scripts": {
     "build-all": "npm run build-sass && npm run build-less",
-    "build-sass": "node-sass src/balloon.scss ./balloon.css && node-sass src/balloon.scss ./balloon.min.css --output-style compressed",
-    "build-less": "lessc src/balloon.less ./balloon.css && lessc --clean-css src/balloon.less ./balloon.min.css",
+    "build-sass": "node-sass src/balloon.scss ./balloon.css && postcss --use autoprefixer balloon.css -c options.json -o balloon.css && node-sass src/balloon.scss ./balloon.min.css --output-style compressed",
+    "build-less": "lessc src/balloon.less ./balloon.css && postcss --use autoprefixer balloon.css -c options.json -o balloon.css && lessc --clean-css src/balloon.less ./balloon.min.css",
     "watch-sass": "node-sass --watch src/balloon.scss src/balloon.css"
   },
   "devDependencies": {
+    "autoprefixer": "^6.3.6",
     "less": "^2.6.1",
     "less-plugin-clean-css": "^1.5.1",
-    "node-sass": "^3.4.2"
+    "node-sass": "^3.4.2",
+    "postcss-cli": "^2.5.2"
   }
 }
