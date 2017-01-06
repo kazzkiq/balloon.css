@@ -1,0 +1,223 @@
+html, body {
+    font-size: 10px;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #ffd748;
+    color: #20194a;
+    font-family: 'Roboto Slab', sans-serif;
+    padding-top: 6rem;
+}
+
+main {
+    overflow: hidden;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+hr {
+    border: none;
+    height: 10px;
+    background: #ff3d2e;
+    margin: 7rem 0;
+}
+
+hr + h2 {
+    margin-top: 0;
+}
+
+footer {
+    background: #ff3d2e;
+    color: #fff;
+    margin-top: 6rem;
+    padding: 3rem;
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+footer a {
+    color: #fff;
+    font-weight: bold;
+}
+
+code {
+    font-family: Consolas, Monaco, monospace;
+}
+
+.container {
+    max-width: 1050px;
+    margin:0 auto;
+}
+
+.logo {
+    width: 272px;
+    fill: #ff3d2e;
+}
+
+.logo img {
+    width: 100%;
+}
+
+h2 {
+    font-size: 3.1rem;
+    font-weight: 300;
+    margin: 2rem 0 0;
+}
+
+p {
+    margin: 1.1rem 0;
+    font-size: 2.1rem;
+    line-height: 3.4rem;
+    font-weight: 300;
+}
+
+code {
+    background: rgba(255,255,255,0.5);
+    padding: 0.3rem;
+}
+
+.button {
+    display:inline-block;
+    min-width: 240px;
+    text-align: center;
+    color: #fff;
+    background: #ff3d2e;
+    padding: 1.5rem 3.5rem;
+    font-size: 2.1rem;
+    margin-top: 1.5rem;
+}
+
+.button + .button {
+    margin-left: 2rem;
+}
+
+.samples {
+    margin-top: 6rem;
+    font-size: 0;
+}
+
+.samples h2 {
+    margin-top: 5rem;
+}
+
+.sample {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.sample pre {
+    display: inline-block;
+    width:60%;
+}
+
+.sample pre code {
+    display: block;
+    background: #fff;
+    color: #222;
+    font-size: 1.4rem;
+    padding:2.5rem 1.5rem;
+    overflow-x: auto;
+}
+
+.sample .example {
+    display: inline-block;
+    width: 30%;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.sample .example button {
+    display:inline-block;
+    min-width: 160px;
+    text-align: center;
+    color: #fff;
+    background: #ff3d2e;
+    padding: 1.2rem 2.8rem;
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
+    border:none;
+    border-radius: 5px;
+
+    transition: background 0.1s linear;
+}
+
+.sample .example button:hover {
+    background: #E01909;
+}
+
+.token .tag, .token .punctuation {
+    color: #0091FF;
+}
+
+.token .attr-name {
+    color: #0091FF;
+}
+
+.token .attr-value {
+    color: #FF3D2E;
+}
+
+.github-button {
+    display: none;
+}
+
+/* Github button */
+iframe {
+    position: absolute;
+    margin-top: -3.2rem;
+    margin-left: 29rem;
+}
+
+@media screen and (max-width: 1080px) {
+    .container {
+        margin: 0 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    iframe {
+        position: relative;
+        margin-top: 3rem;
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+    .container {
+        margin:0 2rem;
+    }
+
+    .button {
+        display: block;
+    }
+
+    .button + .button {
+        margin-left: 0;
+    }
+
+    .sample {
+        flex-direction: column;
+    }
+
+    .sample pre {
+        width: 100%;
+    }
+
+    .sample .example {
+        width: 100%;
+        text-align: center;
+    }
+
+    hr {
+        margin: 5em 0;
+    }
+}
