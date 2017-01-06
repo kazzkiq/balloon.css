@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">	
+	<head>
+		<title>Balloon.css</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="balloon.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				width:100%;
+				height:100%;
+				background-color: #FFDC51;
+				font-family: Roboto, "Helvetica Neue", Helvetica, sans-serif;
+			}
+		
+			.container {
+				width: auto;
+				max-width: 1170px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.btn {
+				margin: 20px;
+				background-color: #FF4434;
+				border-color: #FF4434;
+				color: white;
+				padding: 10px 20px;
+			}
+			.btn:hover {
+				background-color: #dd3122;
+				color: white;
+				border-color: #FF4434;
+			}
+			.btn-container {
+				width: 150px;
+				margin: 50px auto;	
+			}
+		</style>
+	</head>
+		<body>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12" style="text-align: center;">
+						<h1>Balloon.css</h1>
+						<div class="btn-container">
+							<button class="btn btn-default" data-balloon="Whats up!" data-balloon-pos="up">Hover me!</button>
+							<button class="btn btn-default" data-balloon="Whats up!" data-balloon-pos="left">Hover me!</button>
+							<button class="btn btn-default" data-balloon="Whats up!" data-balloon-pos="right">Hover me!</button>
+							<button class="btn btn-default" data-balloon="Whats up!" data-balloon-pos="down">Hover me!</button>
+							<button class="btn btn-default" data-balloon="HTML special characters: &#9787; &#9986; &#9820;" data-balloon-pos="up">Hover me!</button>
+							<button class="btn btn-default" data-balloon="Emojis: 😀 😬 😁 😂 😃 😄 😅 😆" data-balloon-pos="up">Hover me!</button>
+							<button class="btn btn-default fa" data-balloon="Font Awesome: &#xf030; &#xf133; &#xf1fc; &#xf03e; &#xf1f8;" data-balloon-pos="up">Hover me!</button>
+						</div>
+					</div>
+				</div>
+			</div>
+				
+		</body>
+</html>
