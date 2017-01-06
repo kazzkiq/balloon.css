@@ -1,0 +1,21 @@
+{
+  "name": "balloon.css",
+  "homepage": "https://github.com/kazzkiq/balloon.css",
+  "authors": [
+    "Claudio Holanda <https://twitter.com/kazzkiq>"
+  ],
+  "description": "Simple tooltips made of pure CSS",
+  "main": "balloon.css",
+  "keywords": [
+    "css",
+    "tooltips"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
