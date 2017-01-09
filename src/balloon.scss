@@ -5,7 +5,7 @@
 $balloon-bg:             fade-out(#111, .1);
 $balloon-base-size:      10px;
 $balloon-arrow-height:   6px;
-
+$balloon-content-attr: aria-label; // formerly data-balloon, but replaced with aria-label for better accessibility
 
 //
 // Mixins
@@ -90,7 +90,7 @@ button[data-balloon] {
         background: $balloon-bg;
         border-radius: 4px;
         color: #fff;
-        content: attr(data-balloon);
+        content: attr(#{$balloon-content-attr});
         font-size: $balloon-base-size + 2;
         padding: .5em 1em;
         position: absolute;
@@ -107,7 +107,7 @@ button[data-balloon] {
         z-index: 10;
     }
 
-    &:hover, &[data-balloon-visible] {
+    &:hover, &:focus, &[data-balloon-visible] {
         &:before,
         &:after {
             @include opacity(1);
@@ -141,7 +141,7 @@ button[data-balloon] {
             @include transform-origin(top);
         }
 
-        &:hover, &[data-balloon-visible] {
+        &:hover, &:focus, &[data-balloon-visible] {
             &:after {
                 @include transform(translate(-50%, 0));
             }
@@ -170,7 +170,7 @@ button[data-balloon] {
             @include transform(translate(-50%, -10px));
         }
 
-        &:hover, &[data-balloon-visible] {
+        &:hover, &:focus, &[data-balloon-visible] {
             &:after {
                 @include transform(translate(-50%, 0));
             }
@@ -198,7 +198,7 @@ button[data-balloon] {
             @include transform(translate(10px, -50%));
         }
 
-        &:hover, &[data-balloon-visible] {
+        &:hover, &:focus, &[data-balloon-visible] {
             &:after {
                 @include transform(translate(0, -50%));
             }
@@ -228,7 +228,7 @@ button[data-balloon] {
             @include transform(translate(-10px, -50%));
         }
 
-        &:hover, &[data-balloon-visible] {
+        &:hover, &:focus, &[data-balloon-visible] {
             &:after {
                 @include transform(translate(0, -50%));
             }
