@@ -5,7 +5,7 @@
 @balloon-bg:         fade(#111, 90%);
 @balloon-font-size:  12px;
 @balloon-arrow-size: 6px;
-
+@balloon-content-attr: aria-label;
 
 //
 // Mixins
@@ -107,7 +107,7 @@ button[data-balloon] {
         background: @balloon-bg;
         border-radius: @balloon-font-size / 3;
         color: #fff;
-        content: attr(data-balloon);
+        content: attr(@{balloon-content-attr});
         font-size: @balloon-font-size;
         padding: .5em 1em;
         white-space: nowrap;
