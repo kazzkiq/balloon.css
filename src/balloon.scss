@@ -5,7 +5,7 @@
 $balloon-bg:             fade-out(#111, .1);
 $balloon-base-size:      10px;
 $balloon-arrow-height:   6px;
-
+$balloon-content-attr: aria-label; // formerly data-balloon, but replaced with aria-label for better accessibility
 
 //
 // Mixins
@@ -90,7 +90,7 @@ button[data-balloon] {
         background: $balloon-bg;
         border-radius: 4px;
         color: #fff;
-        content: attr(data-balloon);
+        content: attr(#{$balloon-content-attr});
         font-size: $balloon-base-size + 2;
         padding: .5em 1em;
         position: absolute;
