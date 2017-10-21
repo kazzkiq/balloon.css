@@ -22,9 +22,11 @@ You also can check more examples at the website: http://kazzkiq.github.io/balloo
 npm install balloon-css
 ```
 
-**CDN version (provided by [cdnjs](https://github.com/cdnjs/cdnjs)):**
+**CDN version (provided by [cdnjs](https://github.com/cdnjs/cdnjs) and [jsDelivr](https://www.jsdelivr.com/package/npm/balloon-css)):**
 ```html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">
+<!-- or -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/balloon-css@0.5.0/balloon.min.css">
 ```
 
 **Manually:**
