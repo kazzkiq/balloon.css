@@ -4,8 +4,9 @@
 
 $balloon-bg:             fade-out(#111, .1) !default;
 $balloon-base-size:      10px !default;
-$balloon-arrow-height:   6px;
-
+$balloon-arrow-height:   5px;
+$color:                  fade-out(#111, .1) !default;
+$opacity:                .9;
 
 //
 // Mixins
@@ -19,69 +20,69 @@ $balloon-arrow-height:   6px;
 
   @if ($position == down) {
     $degrees: 180 18 6;
-    } @else if ($position == left) {
-      $degrees: -90 18 18;
-      $width: 6px;
-      $height: 18px;
-      } @else if ($position == right) {
-        $degrees: 90 6 6;
-        $width: 6px;
-        $height: 18px;
-      }
+  } @else if ($position == left) {
+    $degrees: -90 18 18;
+    $width: 6px;
+    $height: 18px;
+  } @else if ($position == right) {
+    $degrees: 90 6 6;
+    $width: 6px;
+    $height: 18px;
+  }
 
-      background: no-repeat url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%22#{$width * 2}%22%20height%3D%22#{$height * 2}%22%3E%3Cpath%20fill%3D%22#{$color}%22%20transform%3D%22rotate(#{$degrees})%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E');
-      background-size: 100% auto;
-      width: $width;
-      height: $height;
-    }
+  background: no-repeat url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%22#{$width * 2}%22%20height%3D%22#{$height * 2}%22%3E%3Cpath%20fill%3D%22#{$color}%22%20transform%3D%22rotate(#{$degrees})%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E');
+  background-size: 100% auto;
+  width: $width;
+  height: $height;
+}
 
-    @mixin transition ($args...) {
-      -webkit-transition: $args;
-      -moz-transition: $args;
-      -ms-transition: $args;
-      -o-transition: $args;
-      transition: $args;
-    }
+@mixin transition ($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
 
-    @mixin transform ($val) {
-      -webkit-transform: $val;
-      -moz-transform: $val;
-      -ms-transform: $val;
-      transform: $val;
-    }
+@mixin transform ($val) {
+  -webkit-transform: $val;
+  -moz-transform: $val;
+  -ms-transform: $val;
+  transform: $val;
+}
 
-    @mixin transform-origin ($val) {
-      -webkit-transform-origin: $val;
-      -moz-transform-origin: $val;
-      -ms-transform-origin: $val;
-      transform-origin: $val;
-    }
+@mixin transform-origin ($val) {
+  -webkit-transform-origin: $val;
+  -moz-transform-origin: $val;
+  -ms-transform-origin: $val;
+  transform-origin: $val;
+}
 
-    @mixin opacity ($trans) {
-      filter: alpha(opacity=($trans * 100));
-      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$trans * 100})";
-      -moz-opacity: $trans;
-      -khtml-opacity: $trans;
-      opacity: $trans;
-    }
+@mixin opacity ($trans) {
+  filter: alpha(opacity=($trans * 100));
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$trans * 100})";
+  -moz-opacity: $trans;
+  -khtml-opacity: $trans;
+  opacity: $trans;
+}
 
-    @mixin base-effects () {
-      @include opacity(0);
-      pointer-events: none;
-      @include transition(all .18s ease-out .18s);
-    }
+@mixin base-effects () {
+  @include opacity(0);
+  pointer-events: none;
+  @include transition(all .18s ease-out .18s);
+}
 
-    @mixin no-effects () {
-      @include transition(none);
-    }
+@mixin no-effects () {
+  @include transition(none);
+}
 
-    @mixin normalized-text() {
-      font-family: sans-serif !important;
-      font-weight: normal !important;
-      font-style: normal !important;
-      text-shadow: none !important;
-      font-size: $balloon-base-size + 2 !important;
-    }
+@mixin normalized-text() {
+  font-family: sans-serif !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  text-shadow: none !important;
+  font-size: $balloon-base-size + 2 !important;
+}
 
 
 //
@@ -100,6 +101,40 @@ button[data-balloon] {
   // More info at: https://goo.gl/w8JF4W
   cursor: pointer;
 
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-balloon-#{$name} {
+      &:after {
+        background: rgba($color, $opacity);
+      }
+      &[data-balloon-pos='down'],
+      &[data-balloon-pos='down-left'],
+      &[data-balloon-pos='down-right']{
+        &:before {
+          border-bottom: $balloon-arrow-height solid rgba($color, $opacity);
+        }
+      }
+      &[data-balloon-pos='up'],
+      &[data-balloon-pos="up-left"],
+      &[data-balloon-pos="up-right"]{
+        &:before {
+          border-top: $balloon-arrow-height solid rgba($color, $opacity);
+        }
+      }
+      &[data-balloon-pos='left'] {
+        &:before {
+          border-left: $balloon-arrow-height solid rgba($color, $opacity);
+        }
+      }
+      &[data-balloon-pos='right'] {
+        &:before {
+          border-right: $balloon-arrow-height solid rgba($color, $opacity);
+        }
+      }
+    }
+  }
   &:after {
     @include base-effects();
     @include normalized-text();
@@ -114,9 +149,8 @@ button[data-balloon] {
   }
 
   &:before {
-    @include svg-arrow($balloon-bg);
+    //@include svg-arrow($balloon-bg);
     @include base-effects();
-
     content: '';
     position: absolute;
     z-index: 10;
@@ -131,30 +165,30 @@ button[data-balloon] {
   }
   
   &:not([data-balloon-pos]) {
+    &:after {
+      bottom: 100%;
+      left: 50%;
+      margin-bottom: 5px + $balloon-arrow-height;
+      @include transform(translate(-50%, 10px));
+      @include transform-origin(top);
+    }
+    &:before {
+      bottom: 100%;
+      left: 50%;
+      margin-bottom: 5px;
+      @include transform(translate(-50%, 10px));
+      @include transform-origin(top);
+    }
+
+    &:hover, &[data-balloon-visible] {
       &:after {
-        bottom: 100%;
-        left: 50%;
-        margin-bottom: 5px + $balloon-arrow-height;
-        @include transform(translate(-50%, 10px));
-        @include transform-origin(top);
+        @include transform(translate(-50%, 0));
       }
+
       &:before {
-        bottom: 100%;
-        left: 50%;
-        margin-bottom: 5px;
-        @include transform(translate(-50%, 10px));
-        @include transform-origin(top);
+        @include transform(translate(-50%, 0));
       }
-
-      &:hover, &[data-balloon-visible] {
-        &:after {
-          @include transform(translate(-50%, 0));
-        }
-
-        &:before {
-          @include transform(translate(-50%, 0));
-        }
-      }
+    }
   }
 
   &.font-awesome:after {
@@ -183,6 +217,9 @@ button[data-balloon] {
       @include transform-origin(top);
     }
     &:before {
+      border-left: $balloon-arrow-height solid transparent;
+      border-right: $balloon-arrow-height solid transparent;
+      border-top: $balloon-arrow-height solid $color;
       bottom: 100%;
       left: 50%;
       margin-bottom: 5px;
@@ -210,6 +247,9 @@ button[data-balloon] {
       @include transform-origin(top);
     }
     &:before {
+      border-left: $balloon-arrow-height solid transparent;
+      border-right: $balloon-arrow-height solid transparent;
+      border-top: $balloon-arrow-height solid $color;
       bottom: 100%;
       left: 5px;
       margin-bottom: 5px;
@@ -237,6 +277,9 @@ button[data-balloon] {
       @include transform-origin(top);
     }
     &:before {
+      border-left: $balloon-arrow-height solid transparent;
+      border-right: $balloon-arrow-height solid transparent;
+      border-top: $balloon-arrow-height solid $color;
       bottom: 100%;
       right: 5px;
       margin-bottom: 5px;
@@ -255,6 +298,14 @@ button[data-balloon] {
     }
   }
 
+  &[data-balloon-pos='up'] {
+
+    &:before {
+      border-left: $balloon-arrow-height solid transparent;
+      border-right: $balloon-arrow-height solid transparent;
+      border-top: $balloon-arrow-height solid $color;
+    }
+  }
   &[data-balloon-pos='down'] {
     &:after {
       left: 50%;
@@ -264,8 +315,11 @@ button[data-balloon] {
     }
 
     &:before {
-      @include svg-arrow($balloon-bg, 'down');
+      //@include svg-arrow($balloon-bg, 'down');
 
+      border-left: $balloon-arrow-height solid transparent;
+      border-right: $balloon-arrow-height solid transparent;
+      border-bottom: $balloon-arrow-height solid $color;
       left: 50%;
       margin-top: 5px;
       top: 100%;
@@ -292,7 +346,10 @@ button[data-balloon] {
     }
 
     &:before {
-      @include svg-arrow($balloon-bg, 'down');
+      //@include svg-arrow($balloon-bg, 'down');
+      border-left: $balloon-arrow-height solid transparent;
+      border-right: $balloon-arrow-height solid transparent;
+      border-bottom: $balloon-arrow-height solid $color;
 
       left: 5px;
       margin-top: 5px;
@@ -320,7 +377,10 @@ button[data-balloon] {
     }
 
     &:before {
-      @include svg-arrow($balloon-bg, 'down');
+      //@include svg-arrow($balloon-bg, 'down');
+      border-left: $balloon-arrow-height solid transparent;
+      border-right: $balloon-arrow-height solid transparent;
+      border-bottom: $balloon-arrow-height solid $color;
 
       right: 5px;
       margin-top: 5px;
@@ -348,7 +408,10 @@ button[data-balloon] {
     }
 
     &:before {
-      @include svg-arrow($balloon-bg, 'left');
+      //@include svg-arrow($balloon-bg, 'left');
+      border-bottom: $balloon-arrow-height solid transparent;
+      border-top: $balloon-arrow-height solid transparent;
+      border-left: $balloon-arrow-height solid $color;
 
       margin-right: 5px;
       right: 100%;
@@ -378,7 +441,10 @@ button[data-balloon] {
     }
 
     &:before {
-      @include svg-arrow($balloon-bg, 'right');
+      //@include svg-arrow($balloon-bg, 'right');
+      border-bottom: $balloon-arrow-height solid transparent;
+      border-top: $balloon-arrow-height solid transparent;
+      border-right: $balloon-arrow-height solid $color;
 
       left: 100%;
       margin-left: 5px;
@@ -437,3 +503,5 @@ button[data-balloon] {
     }
   }
 }
+
+
