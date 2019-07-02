@@ -6,7 +6,8 @@ $balloon-bg:             fade-out(#101010, .05) !default;
 $balloon-base-size:      12px !default;
 $balloon-arrow-size:     5px !default;
 $balloon-move:           4px !default;
-
+$balloon-delay-in:       0.5s !default;
+$balloon-delay-out:      0s !default;
 
 //
 // Mixins
@@ -81,10 +82,12 @@ button[aria-label] {
   // Fixing iOS Safari event issue.
   // More info at: https://goo.gl/w8JF4W
   cursor: pointer;
-
+  
   &:after {
     @include base-effects();
     @include normalized-text();
+
+    transition-delay: var(--ballon-delay-out, $balloon-delay-out);
 
     background: var(--balloon-color);
     border-radius: 2px;
@@ -100,6 +103,8 @@ button[aria-label] {
     @include arrow-down();
     @include base-effects();
 
+    transition-delay: var(--ballon-delay-out, $balloon-delay-out);
+
     content: "";
     position: absolute;
     z-index: 10;
@@ -110,6 +115,7 @@ button[aria-label] {
     &:after {
       opacity: 1;      
       pointer-events: none;
+      transition-delay: var(--ballon-delay-in, $balloon-delay-in);
     }
   }
   
