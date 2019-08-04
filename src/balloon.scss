@@ -96,6 +96,7 @@ button[aria-label] {
       padding: .5em 1em;
       position: absolute;
       white-space: nowrap;
+      word-break: break-all;
       z-index: 10;
     }
 
