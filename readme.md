@@ -144,6 +144,11 @@ Balloon.css is mantained in SASS and LESS. To contribute with bugfixes and encha
 3. Edit SASS file and run `npm run build` to generate the production CSS files.
 4. Make sure to test the production files over the website (branch `gh-pages`) before submitting a Pull Request.
 
+Alternatively You can also use Gitpod for contributing. Gitpod is a Free online IDE that will lanch a ready to code workspace with the dependencies pre-installed.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/kazzkiq/balloon.css)
+
+
 Note 1: Remember to update **the SASS file** instead of the generated ones (`balloon.css` and `balloon.min.css` are generated on every build from SASS file).
 
 ### Credits
