@@ -44,7 +44,7 @@ button[aria-label] {
 
       background: var(--balloon-color);
       border-radius: var(--balloon-border-radius);
-      color: var(--balloon-foreground-color);
+      color: var(--balloon-text-color);
       content: attr(aria-label);
       padding: .5em 1em;
       position: absolute;
