@@ -33,10 +33,7 @@ button[aria-label] {
 [aria-label] {
   &[data-balloon-pos] {
     position: relative; // alt. absolute or fixed
-
-    // Fixing iOS Safari event issue.
-    // More info at: https://goo.gl/w8JF4W
-    cursor: pointer;
+    cursor: help;
 
     &:after {
       @include base-effects();
