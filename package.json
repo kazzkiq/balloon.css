@@ -22,6 +22,6 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "node-sass": "^4.14"
+    "node-sass": "^7.0"
   }
 }
