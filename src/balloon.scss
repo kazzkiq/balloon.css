@@ -24,13 +24,15 @@
 }
 
 // IE 11 button bugfix
-button[aria-label] {
+button[aria-label],
+button[aria-description] {
   &[data-balloon-pos] {
     overflow: visible;
   }
 }
 
-[aria-label] {
+[aria-label],
+[aria-description] {
   &[data-balloon-pos] {
     position: relative; // alt. absolute or fixed
 
@@ -46,7 +48,6 @@ button[aria-label] {
       border-radius: 2px;
       color: var(--balloon-text-color);
       border-radius: var(--balloon-border-radius);
-      content: attr(aria-label);
       padding: .5em 1em;
       position: absolute;
       white-space: nowrap;
@@ -218,6 +219,22 @@ button[aria-label] {
 
     &[data-balloon-length="fit"] {
       &:after { width: 100%; }
+    }
+  }
+}
+
+[aria-label] {
+  &[data-balloon-pos] {
+    &:after {
+      content: attr(aria-label)
+    }
+  }
+}
+
+[aria-description] {
+  &[data-balloon-pos] {
+    &:after {
+      content: attr(aria-description)
     }
   }
 }

@@ -64,22 +64,22 @@ Simply download [`balloon.min.css`](https://raw.githubusercontent.com/kazzkiq/ba
 For positioning, use `data-balloon-pos` attribute with one of the values: `up`, `down`, `left`, `right`, `up-left`, `up-right`, `down-left` or `down-right`:
 
 ```html
-<button aria-label="Whats up!" data-balloon-pos="up">Hover me!</button>
-<button aria-label="Whats up!" data-balloon-pos="left">Hover me!</button>
-<button aria-label="Whats up!" data-balloon-pos="right">Hover me!</button>
-<button aria-label="Whats up!" data-balloon-pos="down">Hover me!</button>
+<button aria-description="Whats up!" data-balloon-pos="up">Hover me!</button>
+<button aria-description="Whats up!" data-balloon-pos="left">Hover me!</button>
+<button aria-description="Whats up!" data-balloon-pos="right">Hover me!</button>
+<button aria-description="Whats up!" data-balloon-pos="down">Hover me!</button>
 
-<button aria-label="Whats up!" data-balloon-pos="up-left">Hover me!</button>
-<button aria-label="Whats up!" data-balloon-pos="up-right">Hover me!</button>
-<button aria-label="Whats up!" data-balloon-pos="down-left">Hover me!</button>
-<button aria-label="Whats up!" data-balloon-pos="down-right">Hover me!</button>
+<button aria-description="Whats up!" data-balloon-pos="up-left">Hover me!</button>
+<button aria-description="Whats up!" data-balloon-pos="up-right">Hover me!</button>
+<button aria-description="Whats up!" data-balloon-pos="down-left">Hover me!</button>
+<button aria-description="Whats up!" data-balloon-pos="down-right">Hover me!</button>
 ```
 
 ### Showing tooltips programatically
 If you want to show tooltips even when user interaction isn't happening, you can simply use the `data-balloon-visible` attribute:
 
 ```html
-<button aria-label="Whats up!" data-balloon-pos="up" id="show-tip">Hover me!</button>
+<button aria-description="Whats up!" data-balloon-pos="up" id="show-tip">Hover me!</button>
 <script>
   const btn = document.getElementById('show-tip')
   btn.setAttribute('data-balloon-visible', '')
@@ -91,7 +91,7 @@ If you want to show tooltips even when user interaction isn't happening, you can
 If for some reason you do not want animations in your tooltips, you can use the `data-balloon-blunt` attribute for that.
 
 ```html
-<button data-balloon-blunt aria-label="No animation!" data-balloon-pos="up">No animation!</button>
+<button data-balloon-blunt aria-description="No animation!" data-balloon-pos="up">No animation!</button>
 ```
 
 ### Customizing Tooltips
@@ -134,14 +134,14 @@ If you want to customize tooltips globally, use the `:root` selector:
 You can also add any HTML special character to your tooltips, or even use third-party Icon fonts:
 
 ```html
-<button aria-label="HTML special characters: &#9787; &#9986; &#9820;" data-balloon-pos="up">Hover me!</button>
-<button aria-label="Emojis: 😀 😬 😁 😂 😃 😄 😅 😆" data-balloon-pos="up">Hover me!</button>
+<button aria-description="HTML special characters: &#9787; &#9986; &#9820;" data-balloon-pos="up">Hover me!</button>
+<button aria-description="Emojis: 😀 😬 😁 😂 😃 😄 😅 😆" data-balloon-pos="up">Hover me!</button>
 ```
 
 Example using [Font Awesome](https://fortawesome.github.io/Font-Awesome/):
 
 ```html
-<button class="fa" aria-label="Font Awesome: &#xf030; &#xf133; &#xf1fc; &#xf03e; &#xf1f8;" data-balloon-pos="up">Hover me!</button>
+<button class="fa" aria-description="Font Awesome: &#xf030; &#xf133; &#xf1fc; &#xf03e; &#xf1f8;" data-balloon-pos="up">Hover me!</button>
 ```
 
 ### Contributing
