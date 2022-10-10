@@ -43,7 +43,6 @@ button[aria-label] {
       @include normalized-text();
 
       background: var(--balloon-color);
-      border-radius: 2px;
       color: var(--balloon-text-color);
       border-radius: var(--balloon-border-radius);
       content: attr(aria-label);
